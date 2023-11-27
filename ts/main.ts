@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 function charToCard(c: Character) {
     return `<div class="col-12 col-md-4 mb-3">
     <div class="card">
-        <img src="${escapeHtml(c.imageUrl)}" class="card-img-top" alt="${c.image}">
+        <div class="img-cut"><img src="${escapeHtml(c.imageUrl)}" class="card-img-top" alt="${c.image}"></div>
         <div class="card-body">
             <h5 class="card-title">${escapeHtml(c.fullName)}</h5>
             <p class="card-text">Title: ${escapeHtml(c.title)}</p>

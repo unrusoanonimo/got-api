@@ -7,8 +7,15 @@ body>nav>div>a>img {
     
 }
 
-#char-list img{
-    /* height: 250px; */
+.img-cut{
+    aspect-ratio: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 0 0 5% 5%;
+}
+.card{
+    height: 100%;
 }
 
 #content {
