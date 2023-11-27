@@ -10,13 +10,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const API_DOMAIN = "https://thronesapi.com";
 document.addEventListener("DOMContentLoaded", () => __awaiter(void 0, void 0, void 0, function* () {
+    setTab(0);
     let a = fetch(`${API_DOMAIN}/api/v2/Characters`).then(v => 5);
     console.log(a);
     const resp = yield fetch(`${API_DOMAIN}/api/v2/Characters`).then(v => v.json());
     document.querySelector("#char-list").innerHTML = resp.map(v => charToCard(v)).join('');
 }));
 function charToCard(c) {
-    return `<div class="col-4 mb-3">
+    return `<div class="col-12 col-md-4 mb-3">
     <div class="card">
         <img src="${escapeHtml(c.imageUrl)}" class="card-img-top" alt="${c.image}">
         <div class="card-body">
@@ -33,4 +34,10 @@ function escapeHtml(unsafe) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+}
+function setTab(n) {
+    const curent = document.querySelector(".tab.active");
+    const tabs = document.querySelectorAll(".tab");
+    curent === null || curent === void 0 ? void 0 : curent.classList.remove("active");
+    tabs.item(n).classList.add("active");
 }

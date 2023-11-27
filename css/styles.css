@@ -4,8 +4,17 @@
 
 body>nav>div>a>img {
     height: var(--logo-h);
+    
+}
+
+#char-list img{
+    /* height: 250px; */
 }
 
 #content {
     margin-top: calc(var(--logo-h) + 26px);
+}
+
+.tab:not(.active) {
+    display: none;
 }
