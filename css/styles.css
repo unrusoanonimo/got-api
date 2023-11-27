@@ -4,17 +4,18 @@
 
 body>nav>div>a>img {
     height: var(--logo-h);
-    
+
 }
 
-.img-cut{
+.img-cut {
     aspect-ratio: 1;
     overflow: hidden;
     display: flex;
     align-items: center;
     border-radius: 0 0 5% 5%;
 }
-.card{
+
+.card {
     height: 100%;
 }
 
@@ -24,4 +25,23 @@ body>nav>div>a>img {
 
 .tab:not(.active) {
     display: none;
+}
+
+#continent-list>div {
+    border: 1px solid grey;
+    height: 300px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: end;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+#continent-list>div>p {
+    color: chocolate;
+    width: calc(100% - 6px);
+    text-align: end;
 }

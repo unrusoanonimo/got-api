@@ -8,3 +8,7 @@ type Character = {
     image: string;
     imageUrl: string;
 }
+type Continent = {
+    id: number,
+    name: string
+}

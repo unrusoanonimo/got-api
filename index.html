@@ -27,7 +27,10 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#" onclick="setTab('characters')">Characters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="setTab('continents')">Continents</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -55,7 +58,7 @@
         </div>
     </nav>
     <div class="container" id="content">
-        <div class="tab">
+        <div id="characters" class="tab">
             <h1>Game of thrones (personajes)</h1>
 
 
@@ -99,9 +102,9 @@
 
             </div>
         </div>
-        <div class="tab">
+        <div id="continents" class="tab">
             <h1>Game of thrones (Continentes)</h1>
-            <div class="row" id="char-list">
+            <div id="continent-list">
 
             </div>
         </div>

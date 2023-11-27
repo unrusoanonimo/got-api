@@ -1,14 +1,31 @@
-const API_DOMAIN = "https://thronesapi.com";
+const API_ROOT = "https://thronesapi.com";
 document.addEventListener("DOMContentLoaded", async () => {
-    setTab(0);
+    setTab("characters");
 
-    let a = fetch(`${API_DOMAIN}/api/v2/Characters`).then(v => 5);
+    let a = fetch(`${API_ROOT}/api/v2/Characters`).then(v => 5);
     console.log(a);
 
-    const resp: Character[] = await fetch(`${API_DOMAIN}/api/v2/Characters`).then(v => v.json());
+    const resp: Character[] = await fetch(`${API_ROOT}/api/v2/Characters`).then(v => v.json());
 
 
     document.querySelector("#char-list")!.innerHTML = resp.map(v => charToCard(v)).join('');
+
+
+    const continents = document.querySelector("#continent-list")!;
+    fetch(`${API_ROOT}/api/v2/Continents`).then(v => v.json() as Promise<Continent[]>).then(v => v.forEach(v => {
+        const div = document.createElement("div");
+
+
+        const continentName = document.createElement("p");
+        // continent.classList.add("list-group-item");
+        continentName.innerText = v.name;
+
+        const img = document.createElement("img")
+        div.style.backgroundImage = (`url('https://picsum.photos/1200/300?random=${v.id}')`);
+        div.appendChild(img)
+        div.appendChild(continentName)
+        continents.appendChild(div)
+    }))
 
 });
 function charToCard(c: Character) {
@@ -33,9 +50,9 @@ function escapeHtml(unsafe: string) {
         .replace(/'/g, "&#039;");
 }
 
-function setTab(n: number) {    
+function setTab(id: string) {
     const curent = document.querySelector(".tab.active");
-    const tabs = document.querySelectorAll(".tab");
+    const selected = document.querySelector(`#${id}.tab`);
     curent?.classList.remove("active")
-    tabs.item(n).classList.add("active")
+    selected?.classList.add("active")
 }
